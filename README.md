@@ -72,8 +72,9 @@ Assume we are working with the following upstream: `https://github.com/bellaxing
 3. Add at least 5 markdown syntax (For example: Headers, Bold, Code, Unordered List, Links) [Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 ## Comments && Questions:
-I done earlier this morning this assignment. But I accedently deleted repository and local repository too.
-Is there any chance to recover both off them?
+I finished my assigments earlier this morning. But I accedently deleted repository and local repository too.
+ Luckily I have those screen shots. Then I made this new repository again. Some steps may skipped. 
+ Is there any chance to recover both old repositories?
 
 
   
