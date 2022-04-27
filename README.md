@@ -3,9 +3,9 @@
 ## Practice with all the local repository commands from the slides:
 1. `git init`:![Screenshot 2022-04-26 143322](https://user-images.githubusercontent.com/73855281/165647242-bf7f4a8f-5edc-4889-becb-9b3c0a634819.png)
 
-2. `git status`:![Screenshot 2022-04-26 143905](https://user-images.githubusercontent.com/73855281/165647269-cbb67f63-d5df-4027-a607-4f93079961eb.png)
+2. `git status`:
 
-3. `git diff`:![Screenshot 2022-04-26 144430](https://user-images.githubusercontent.com/73855281/165647286-9ad5577d-2c9b-4e16-9ce3-681358e7980f.png)
+3. `git diff`:![Screenshot 2022-04-26 143905](https://user-images.githubusercontent.com/73855281/165647269-cbb67f63-d5df-4027-a607-4f93079961eb.png)
 
 4. Create `.gitignore` file, and notice how it works:![Screenshot 2022-04-26 144430](https://user-images.githubusercontent.com/73855281/165647425-dc07da5f-9198-4c46-82d5-c011058134e0.png)
 
