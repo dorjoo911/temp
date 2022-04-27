@@ -66,12 +66,14 @@ Assume we are working with the following upstream: `https://github.com/bellaxing
 
 12. Create a new Pull Request to the upstream repo:![Screenshot 2022-04-26 202043](https://user-images.githubusercontent.com/73855281/165648627-86576584-0faa-41e5-9693-887dc24990f3.png)
 
-
-## What you need to submit:
-Copy and paste your github link of this lab to Sakai.
-
-## The below is Optional homework if you're interested in. This is self study part, not going to lecture. If you have questions, please ask TA.
+## Optional homework:
 1. Create a remote repository
 2. Create `README.md`
 3. Add at least 5 markdown syntax (For example: Headers, Bold, Code, Unordered List, Links) [Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+## Comments && Questions:
+I done earlier this morning this assignment. But I accedently deleted repository and local repository too.
+Is there any chance to recover both off them?
+
+
   
