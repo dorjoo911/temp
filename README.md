@@ -3,7 +3,7 @@
 ## Practice with all the local repository commands from the slides:
 1. `git init`:![Screenshot 2022-04-26 143322](https://user-images.githubusercontent.com/73855281/165647242-bf7f4a8f-5edc-4889-becb-9b3c0a634819.png)
 
-2. `git status`:
+2. `git status`
 
 3. `git diff`:![Screenshot 2022-04-26 143905](https://user-images.githubusercontent.com/73855281/165647269-cbb67f63-d5df-4027-a607-4f93079961eb.png)
 
@@ -18,7 +18,8 @@
 
 10. `git tag`:![Screenshot 2022-04-26 145912](https://user-images.githubusercontent.com/73855281/165647576-58d4c12b-f812-4bc6-ae9c-ed140a9798f1.png)
 
-11. `git branch`
+11. `git branch`:![Screenshot 2022-04-26 150106](https://user-images.githubusercontent.com/73855281/165647824-32045af7-498e-40db-a2a2-a8045f77dbc0.png)
+
 12. `git checkout`
 13. `git merge`
     1. Create a conflict and solve the conflict
