@@ -18,9 +18,9 @@ function fibonacci2(element) {
 }
 
 console.time("Recursive Version");
-console.log(fibonacci(2));
+console.log(fibonacci(5));
 console.timeEnd("Recursive Version");
 
 console.time("Memorized Version");
-console.log(fibonacci2(2));
+console.log(fibonacci2(5));
 console.timeEnd("Memorized Version");
