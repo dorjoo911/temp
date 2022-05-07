@@ -16,20 +16,12 @@
           img1.src = img2.src;
           img2.src = temp;
         };
-        img1.addEventListener("mouseover", imageDetector);
-        img2.addEventListener("mouseover", imageDetector);
-
-        function imageDetector() {
-          if (true) {
-            // need a logic
-            return (document.getElementById("effect").innerHTML =
-              "Image 1 detected");
-          } else if (true) {
-            // need a logic
-            return (document.getElementById("effect").innerHTML =
-              "Image 2 detected");
-          }
-        }
+        img1.addEventListener("mouseover", function () {
+          document.getElementById("effect").innerHTML = "Image 1 detected";
+        });
+        img2.addEventListener("mouseover", function () {
+          document.getElementById("effect").innerHTML = "Image 2 detected";
+        });
       };
     </script>
   </head>
