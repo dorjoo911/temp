@@ -1,13 +1,23 @@
-const isPrime = (num) => {
-  return new Promise((resolve, reject) => {
-    for (let i = 2, s = Math.sqrt(num); i <= s; i++) {
-      if (num % i === 0) setTimeout(() => reject({ prime: false }), 500);
-      setTimeout(() => resolve({ prime: num > 1 }), 500);
-    }
+const isPrime = (num) =>
+  new Promise((resolve, reject) => {
+    setTimeout(function () {
+      for (let i = 2, s = Math.sqrt(num); i <= s; i++)
+        if (num % i === 0) reject({ prime: false });
+      resolve({ prime: num > 1 });
+    }, 500);
   });
-};
 
-// When you finish, test using the code below:
+async function isPrimeAsync(returnedPromise) {
+  console.log(await isPrime(returnedPromise));
+}
+// async function isPrimeAsync(returnedPromise) {
+//   let res = await isPrime(returnedPromise);
+//   try {
+//     console.log(res);
+//   } catch {
+//     console.log(err);
+//   }
+// }
 
 console.log("start");
 isPrime(4)

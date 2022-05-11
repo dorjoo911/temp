@@ -1,8 +1,5 @@
-Array.prototype.removeDuplicatesAsync = function () {
-  let arr = this;
-  new Promise(function (resolve, reject) {
-    resolve(arr.filter((item, index) => arr.indexOf(item) === index));
-  }).then(console.log);
+Array.prototype.removeDuplicatesAsync = async function () {
+  console.log(await [...new Set(this)]);
 };
 
 console.log(`start`);
