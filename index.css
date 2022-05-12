@@ -1,0 +1,65 @@
+body {
+  background-color: black;
+  margin: 20px;
+  height: 610px;
+}
+li {
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+a {
+  color: yellowgreen;
+  text-decoration: none;
+}
+a:hover {
+  color: darkblue;
+}
+.marquee {
+  height: 35px;
+  width: 100%;
+
+  overflow: hidden;
+  position: relative;
+
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 8px 0 4px 0;
+}
+.marquee div {
+  display: inline-block;
+  width: 300%;
+  height: 40px;
+
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 30s linear infinite;
+}
+.marquee span {
+  float: left;
+  width: 500px;
+}
+
+.marquee:hover div {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: -800px;
+  }
+}
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3909a7");
+img {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  height: 600px;
+  width: 100%;
+}
