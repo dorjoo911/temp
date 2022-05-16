@@ -157,5 +157,33 @@ function addToPlayer(id) {
     ... Title: ${song.title}`;
 
   musicPlayer.load();
-  musicPlayer.play(); //if I want to auto play 'ON
+  // musicPlayer.autoplay();
+  musicPlayer.play();
 }
+
+/* <<<===***--- MUSIC PLAYER CONTROLLERS ---***===>>> */
+const repeatBtn = document.getElementById("repeat");
+const left = document.getElementById("left");
+const shuffle = document.getElementById("shuffle");
+const right = document.getElementById("right");
+
+// shuffle.addEventListener("click", () => {
+//   let randIndex = Math.floor(Math.random() * playlistSongs.length + 1);
+//   if (musicIndex == randIndex) {
+//     musicIndex = randIndex;
+//   }
+// });
+
+// left.addEventListener("click", () => {
+//   playlistSongs.forEach((song) => {
+//     console.log(song.id);
+//   });
+// });
+
+// right.addEventListener("click", () => {
+//   playlistSongs.forEach((song) => {});
+// });
+
+// repeatBtn.addEventListener("click", () => {
+//   playlistSongs.forEach((song) => {});
+// });
