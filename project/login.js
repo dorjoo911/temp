@@ -19,7 +19,7 @@ window.onload = function () {
 
       if (response.status !== "error") {
         localStorage.setItem("accessToken", response.accessToken);
-        window.location = "/project/music.html";
+        window.location = "music.html";
       } else {
         alert(response.message);
       }
