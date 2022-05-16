@@ -63,7 +63,7 @@ async function fetchPlaylist() {
   });
 
   let response = await result.json();
-  playlistSongs = response; // *** saved in global array ***
+  playlistSongs = response; // *** All songs saved in global array ***
   renderSongs(response, "playlist-table", "remove");
 }
 
@@ -86,7 +86,7 @@ function renderSongs(songs, table, type) {
 </tr>`;
   }
 
-  let songList = ""; // it will contain
+  let songList = ""; // later, concat on <th> tag
   for (let i = 0; i < songs.length; i++) {
     let song = songs[i];
     songList += `
@@ -103,10 +103,10 @@ function renderSongs(songs, table, type) {
 
     songList += `</tr>`;
   }
-  songTable.innerHTML += songList;
+  songTable.innerHTML += songList; // new <tr> row added/concat on type of <th> in type of tables
 }
 
-/* <<<===***--- ADD SONG FROM MUSIC TABLE ---***===>>> */
+/* <<<===***--- ADD SONG INTO PLAYLIST FROM MUSIC TABLE ---***===>>> */
 async function addSong(id) {
   let result = await fetch(`${rootURL}playlist/add`, {
     method: "POST",
@@ -115,16 +115,16 @@ async function addSong(id) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      songId: id,
+      songId: id, // have to in "" JSON
     }),
   });
 
   let response = await result.json();
-  playlistSongs = response; // *** saved in global array ***
+  playlistSongs = response; // *** Only choosen songs in global array ***
   renderSongs(response, "playlist-table", "remove");
 }
 
-/* <<<===***--- REMOVE SONGS FROM PLAY LIST ---***===>>> */
+/* <<<===***--- REMOVE SONG FROM PLAY LIST ---***===>>> */
 async function removeSong(id) {
   let result = await fetch(`${rootURL}playlist/remove`, {
     method: "POST",
@@ -138,11 +138,11 @@ async function removeSong(id) {
   });
 
   let response = await result.json();
-  playlistSongs = response; // *** updated in global array ***
+  playlistSongs = response; // *** Updated choosen songs in global array ***
   renderSongs(response, "playlist-table", "remove");
 }
 
-/* <<<===***--- On the Music Player ---***===>>> */
+/* <<<===***--- ON THE Music Player ---***===>>> */
 function addToPlayer(id) {
   const song = playlistSongs.find((item) => item.id === id);
 
@@ -157,5 +157,5 @@ function addToPlayer(id) {
     ... Title: ${song.title}`;
 
   musicPlayer.load();
-  musicPlayer.play(); //if I want to auto play
+  musicPlayer.play(); //if I want to auto play 'ON
 }
