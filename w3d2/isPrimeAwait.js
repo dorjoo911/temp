@@ -10,14 +10,6 @@ const isPrime = (num) =>
 async function isPrimeAsync(returnedPromise) {
   console.log(await isPrime(returnedPromise));
 }
-// async function isPrimeAsync(returnedPromise) {
-//   let res = await isPrime(returnedPromise);
-//   try {
-//     console.log(res);
-//   } catch {
-//     console.log(err);
-//   }
-// }
 
 console.log("start");
 isPrime(4)

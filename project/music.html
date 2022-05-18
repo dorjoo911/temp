@@ -89,10 +89,26 @@
         <h4 id="playing">Kaabil-Hoon</h4>
         <br />
         <div class="row controls justify-content-center">
-          <i class="col bi bi-caret-left" id="left"></i>
-          <i class="col bi bi-shuffle" id="shuffle"></i>
-          <i class="col bi bi-arrow-repeat" id="repeat"></i>
-          <i class="col bi bi-caret-right" id="right"></i>
+          <i
+            class="col bi bi-caret-left"
+            id="prevSong"
+            onclick="playPreSong()"
+          ></i>
+          <i
+            class="col bi bi-shuffle"
+            id="shuffle"
+            onclick="shuffleSongs()"
+          ></i>
+          <i
+            class="col bi bi-arrow-repeat"
+            id="repeat"
+            onclick="repeatSongs()"
+          ></i>
+          <i
+            class="col bi bi-caret-right"
+            id="nextSong"
+            onclick="playNextSong()"
+          ></i>
         </div>
         <br />
 

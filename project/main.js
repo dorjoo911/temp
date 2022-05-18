@@ -4,6 +4,7 @@ window.onload = function () {
 };
 let playlistSongs = [];
 let rootURL = "http://localhost:3000/api/";
+let currentSong;
 
 /* <<<===***--- Search song ---***===>>> */
 function searchSong() {
@@ -143,47 +144,160 @@ async function removeSong(id) {
 }
 
 /* <<<===***--- ON THE Music Player ---***===>>> */
+
 function addToPlayer(id) {
-  const song = playlistSongs.find((item) => item.id === id);
+  currentSong = playlistSongs.find((item) => item.id === id);
 
   const musicPlayer = document.getElementById("music-player");
   const songTitle = document.getElementById("playing");
   const src = document.getElementById("srcURL");
   const info = document.getElementById("info");
 
-  src.src = "http://localhost:3000/" + song.urlPath;
-  songTitle.innerHTML = song.title;
-  info.innerHTML = `${song.urlPath}
-    ... Title: ${song.title}`;
+  src.src = "http://localhost:3000/" + currentSong.urlPath;
+  songTitle.innerHTML = currentSong.title;
+  info.innerHTML = `${currentSong.urlPath}
+    ... Title: ${currentSong.title}`;
 
   musicPlayer.load();
   // musicPlayer.autoplay();
   musicPlayer.play();
+  console.log("currentSong", currentSong);
+  console.log("currentSong.id", currentSong.id);
+  console.log("playlistSongs.id", playlistSongs[0 + 1]);
 }
 
 /* <<<===***--- MUSIC PLAYER CONTROLLERS ---***===>>> */
-const repeatBtn = document.getElementById("repeat");
-const left = document.getElementById("left");
-const shuffle = document.getElementById("shuffle");
-const right = document.getElementById("right");
+function playNextSong() {
+  const musicPlayer = document.getElementById("music-player");
+  const songTitle = document.getElementById("playing");
+  const src = document.getElementById("srcURL");
+  const info = document.getElementById("info");
 
-// shuffle.addEventListener("click", () => {
-//   let randIndex = Math.floor(Math.random() * playlistSongs.length + 1);
-//   if (musicIndex == randIndex) {
-//     musicIndex = randIndex;
+  fetch(`${rootURL}playlist`, {
+    headers: new Headers({
+      Authorization: "Bearer " + localStorage.getItem("accessToken"),
+    }),
+  })
+    .then((response) => response.json())
+    .then((songs) => {
+      for (let song = 0; song < songs.length; song++) {
+        if (songs[song].id === currentSong.id) {
+          console.log(songs[song]);
+          currentSong = songs[song + 1];
+
+          src.src = "http://localhost:3000/" + currentSong.urlPath;
+          songTitle.innerHTML = currentSong.title;
+          info.innerHTML = `${currentSong.urlPath}
+                    ... Title: ${currentSong.title}`;
+          musicPlayer.load();
+          musicPlayer.play();
+        }
+      }
+    });
+}
+function playPreSong() {
+  const musicPlayer = document.getElementById("music-player");
+  const songTitle = document.getElementById("playing");
+  const src = document.getElementById("srcURL");
+  const info = document.getElementById("info");
+
+  fetch(`${rootURL}playlist`, {
+    headers: new Headers({
+      Authorization: "Bearer " + localStorage.getItem("accessToken"),
+    }),
+  })
+    .then((response) => response.json())
+    .then((songs) => {
+      for (let song = 0; song < songs.length; song++) {
+        if (songs[song].id === currentSong.id) {
+          console.log(songs[song]);
+          currentSong = songs[song - 1];
+
+          src.src = "http://localhost:3000/" + currentSong.urlPath;
+          songTitle.innerHTML = currentSong.title;
+          info.innerHTML = `${currentSong.urlPath}
+                    ... Title: ${currentSong.title}`;
+          musicPlayer.load();
+          musicPlayer.play();
+        }
+      }
+    });
+}
+function shuffleSongs() {
+  const musicPlayer = document.getElementById("music-player");
+  const songTitle = document.getElementById("playing");
+  const src = document.getElementById("srcURL");
+  const info = document.getElementById("info");
+
+  fetch(`${rootURL}playlist`, {
+    headers: new Headers({
+      Authorization: "Bearer " + localStorage.getItem("accessToken"),
+    }),
+  })
+    .then((response) => response.json())
+    .then((songs) => {
+      let currentSong = Math.floor(Math.random() * songs.length + 1);
+
+      src.src = "http://localhost:3000/" + currentSong.urlPath;
+      songTitle.innerHTML = currentSong.title;
+      info.innerHTML = `${currentSong.urlPath}
+                    ... Title: ${currentSong.title}`;
+      musicPlayer.load();
+      musicPlayer.play();
+    });
+}
+function repeatSongs() {
+  const musicPlayer = document.getElementById("music-player");
+  musicPlayer.loop = true;
+}
+
+// const repeatBtn = document.getElementById("repeat");
+// const prevSong = document.getElementById("left");
+// const shuffle = document.getElementById("shuffle");
+// const nextSong = document.getElementById("right");
+
+// nextSong.addEventListener("click", () => {
+//   console.log(currentSong);
+//   for (let song = 0; song < playlistSongs.length; song++) {
+//     if (playlistSongs[song].id === currentSong.id) {
+//       console.log("found");
+//       console.log(playlistSongs[song]);
+//       currentSong = playlistSongs[song + 1];
+
+//       src.src = "http://localhost:3000/" + currentSong.urlPath;
+//       songTitle.innerHTML = currentSong.title;
+//       info.innerHTML = `${currentSong.urlPath}
+//                 ... Title: ${currentSong.title}`;
+//       musicPlayer.load();
+//       // musicPlayer.autoplay();
+//       musicPlayer.play();
+//     }
 //   }
 // });
 
-// left.addEventListener("click", () => {
-//   playlistSongs.forEach((song) => {
-//     console.log(song.id);
-//   });
+// const musicPlayer = document.getElementById("music-player");
+// const songTitle = document.getElementById("playing");
+// const src = document.getElementById("srcURL");
+// const info = document.getElementById("info");
+
+// prevSong.addEventListener("click", function () {
+//   for (let song = 0; song < playlistSongs.length; song++) {
+//     if (playlistSongs[song].id === currentSong.id) {
+//       console.log("found");
+//       currentSong = playlistSongs[song - 1];
+//     }
+//   }
 // });
 
-// right.addEventListener("click", () => {
-//   playlistSongs.forEach((song) => {});
+// shuffle.addEventListener("click", () => {
+//   let randIndex = Math.floor(Math.random() * playlistSongs.length + 1);
+//   if (id == randIndex) {
+//     id = randIndex;
+//   }
 // });
 
 // repeatBtn.addEventListener("click", () => {
-//   playlistSongs.forEach((song) => {});
+//   playlistSongs.forEach((song) => {
+//     currentSong = song;
+//   });
 // });
